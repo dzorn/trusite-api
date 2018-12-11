@@ -4,19 +4,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
-    <Folder Include="Data\Abstractions\" />
-    <Folder Include="Entities\" />
-    <Folder Include="Entities\Abstractions\" />
-    <Folder Include="Services\" />
-    <Folder Include="Services\Abstractions\" />
-    <Folder Include="Models\" />
-    <Folder Include="Configuration\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
     <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Data\Abstractions\IBaseRepository.cs" />
+    <Compile Remove="Services\Abstractions\IItemService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TruSite.Api.Core\TruSite.Api.Core.csproj" />
+    <ProjectReference Include="..\TruSite.Api.Domain\TruSite.Api.Domain.csproj" />
+    <ProjectReference Include="..\TruSite.Api.Data\TruSite.Api.Data.csproj" />
   </ItemGroup>
 </Project>

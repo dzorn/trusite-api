@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using TruSite.Api.Domain.Configuration;
 using TruSite.Api.Data;
 
 namespace TruSite.Api
@@ -45,6 +46,8 @@ namespace TruSite.Api
 			services.AddSingleton<IConfiguration>(Configuration);
 
 			services.AddDbContext<TruSiteContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TruSiteDb")));
+
+			services.AddSingleton<IMapper>(sp => new MapperConfiguration(cfg => cfg.AddProfile(new MappingProfile())).CreateMapper());
 
         }
 

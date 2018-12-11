@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TruSite.Api.Models;
-using TruSite.Api.Services.Abstractions;
+using TruSite.Api.Domain.Models;
+using TruSite.Api.Core.Abstractions.Services;
 
 namespace TruSite.Api.Controllers
 {
