@@ -11,22 +11,22 @@ namespace TruSite.Api.Controllers
 	[ApiController]
 	public class ItemsController : ControllerBase
 	{
-		private readonly IItemService _itemService;
+		private readonly IItemService itemService;
 
 		public ItemsController(IItemService itemService) : base()
 		{
-			_itemService = itemService;
+			this.itemService = itemService;
 		}
 
 		// GET api/items
 		[HttpGet]
-		[ProducesResponseType(typeof(IEnumerable<ItemModel>), 200)]
+		[ProducesResponseType(typeof(IList<ItemModel>), 200)]
 		[ProducesResponseType(400)]
-		public async Task<IActionResult> GetAsync()
+		public async Task<IActionResult> GetAsync([FromQuery]bool? active = null)
 		{
 			try
 			{
-				return Ok(await _itemService.GetAllItemsAsync());
+				return Ok(await itemService.GetItemsAsync(active));
 			}
 			catch(Exception ex)
 			{
@@ -34,50 +34,65 @@ namespace TruSite.Api.Controllers
 			}
 		}
 
-		// GET api/values/5
-		[HttpGet("{id}")]
-		[ProducesResponseType(typeof(ItemModel), 200)]
-		[ProducesResponseType(400)]
-		public async Task<IActionResult> GetAsync(Guid id)
-		{
-			try
-			{
-				return Ok(await _itemService.GetItemByIdAsync(id));
-			}
-			catch (Exception ex)
-			{
-				return BadRequest(ex);
-			}
-		}
+		//// GET api/values/5
+		//[HttpGet("{id}")]
+		//[ProducesResponseType(typeof(ItemModel), 200)]
+		//[ProducesResponseType(400)]
+		//public async Task<IActionResult> GetAsync(Guid id)
+		//{
+		//	try
+		//	{
+		//		return Ok(await itemService.GetItemByIdAsync(id));
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		return BadRequest(ex);
+		//	}
+		//}
 
-		// POST api/values
-		[HttpPost]
-		[ProducesResponseType(typeof(ItemModel), 201)]
-		[ProducesResponseType(400)]
-		[ProducesResponseType(500)]
-		public async Task<IActionResult> PostAsync([FromBody] ItemModel model)
-		{
-			return ModelState.IsValid ? Created(string.Empty, await _itemService.CreateItemAsync(model)) : (IActionResult)BadRequest(ModelState);
-		}
+		//// POST api/values
+		//[HttpPost]
+		//[ProducesResponseType(typeof(ItemModel), 201)]
+		//[ProducesResponseType(400)]
+		//[ProducesResponseType(500)]
+		//public async Task<IActionResult> PostAsync([FromBody]ItemModel model)
+		//{
+		//	return ModelState.IsValid ? Created(string.Empty, await itemService.CreateItemAsync(model)) : (IActionResult)BadRequest(ModelState);
+		//}
 
-		// PUT api/values/5
-		[HttpPut]
-		[ProducesResponseType(typeof(ItemModel), 200)]
-		[ProducesResponseType(400)]
-		public async Task<IActionResult> PutAsync([FromBody] ItemModel model)
-		{
-			return ModelState.IsValid ? Ok(await _itemService.UpdateItemAsync(model)) : (IActionResult)BadRequest(ModelState);
-		}
+		//// PUT api/values/5
+		//[HttpPut]
+		//[ProducesResponseType(typeof(ItemModel), 200)]
+		//[ProducesResponseType(400)]
+		//public async Task<IActionResult> PutAsync([FromBody]ItemModel model)
+		//{
+		//	return ModelState.IsValid ? Ok(await itemService.UpdateItemAsync(model)) : (IActionResult)BadRequest(ModelState);
+		//}
 
-		// DELETE api/values/5
-		[HttpDelete("{id}")]
-		[ProducesResponseType(typeof(ItemModel), 200)]
-		[ProducesResponseType(400)]
-		public async Task<IActionResult> DeleteAsync(Guid id)
-		{
-				await _itemService.DeleteItemAsync(id);
-				return Ok();
-		}
+		//[HttpPatch]
+		//[ProducesResponseType(typeof(ItemModel), 200)]
+		//[ProducesResponseType(400)]
+		//public async Task<IActionResult> PatchAsync([FromQuery]Guid id, [FromBody]IDictionary<string, object> property_Values)
+		//{
+		//	try
+		//	{
+		//		return (await itemService.UpdateItemAsync(id, property_Values));
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		return BadRequest(ex)
+		//	}
+		//}
+
+		//// DELETE api/values/5
+		//[HttpDelete("{id}")]
+		//[ProducesResponseType(typeof(ItemModel), 200)]
+		//[ProducesResponseType(400)]
+		//public async Task<IActionResult> DeleteAsync(Guid id)
+		//{
+		//		await itemService.DeleteItemAsync(id);
+		//		return Ok();
+		//}
 
 	}
 }

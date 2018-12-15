@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using TruSite.Api.Domain.Configuration;
 using TruSite.Api.Data;
+using TruSite.Api.Extensions;
 
 namespace TruSite.Api
 {
@@ -47,7 +48,7 @@ namespace TruSite.Api
 
 			services.AddDbContext<TruSiteContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TruSiteDb")));
 
-			services.AddSingleton<IMapper>(sp => new MapperConfiguration(cfg => cfg.AddProfile(new MappingProfile())).CreateMapper());
+			services.AddMapper();
 
         }
 

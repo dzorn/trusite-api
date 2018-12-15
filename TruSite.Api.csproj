@@ -4,6 +4,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
@@ -21,5 +22,6 @@
     <ProjectReference Include="..\TruSite.Api.Core\TruSite.Api.Core.csproj" />
     <ProjectReference Include="..\TruSite.Api.Domain\TruSite.Api.Domain.csproj" />
     <ProjectReference Include="..\TruSite.Api.Data\TruSite.Api.Data.csproj" />
+    <ProjectReference Include="..\TruSite.Api.Services\TruSite.Api.Services.csproj" />
   </ItemGroup>
 </Project>
