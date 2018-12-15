@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TruSite.Api.Core\TruSite.Api.Core.csproj" />
+    <ProjectReference Include="..\TruSite.Api.Domain\TruSite.Api.Domain.csproj" />
+    <ProjectReference Include="..\TruSite.Api.Data\TruSite.Api.Data.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+  </ItemGroup>
+</Project>

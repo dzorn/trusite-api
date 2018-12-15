@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Extensions\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TruSite.Api.Core\TruSite.Api.Core.csproj" />
+    <ProjectReference Include="..\TruSite.Api.Domain\TruSite.Api.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Configuration\MappingProfile.cs" />
+    <Compile Remove="Abstractions\IEntity.cs" />
+  </ItemGroup>
+</Project>

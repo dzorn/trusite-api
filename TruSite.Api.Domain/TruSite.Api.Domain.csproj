@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Enumerations\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Models\" />
+    <Folder Include="Entities\" />
+    <Folder Include="Entities\Abstractions\" />
+    <Folder Include="JoinModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+    <Compile Remove="ServiceTransferObjects\Abstractions\ITruSiteSto.cs" />
+    <Compile Remove="Models\NoteModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+  </ItemGroup>
+</Project>
